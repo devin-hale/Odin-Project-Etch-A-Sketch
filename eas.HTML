@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Etch-A-Sketch</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js" defer></script>
+
+    </head>
+    <body>
+        <div class="fullContainer">
+            <p class="title innerDiv">Etch-A-Sketch</p>
+            <div id="userInputs" class="innerDiv">
+                <button id="resetButton">Reset</button>
+                <div id="form">
+                    <label for="gridInput">Grid Size:</label>
+                    <input type="number" id="gridInput" name="gridSize"
+                    min="1" max="100">
+                    <div id="gridInputPartner"></div>
+                </div>
+                <button id="newGridButton">Resize</button>
+            </div>
+            <div id="alerts"></div>
+            <div class="gridContainer innerDiv">
+            </div>
+            <div id="colors">
+                <div id="rainbow" class="colorbox"></div>
+                <div id="black" class="colorbox"></div>
+                <div id="white" class="colorbox"></div>
+            </div>
+        </div>
+    </body>
+</html>
