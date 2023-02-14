@@ -4,11 +4,13 @@ const gridSizeForm = document.querySelector('#gridInput');
 const newGridButton = document.querySelector('#newGridButton');
 const gridInputPartner = document.querySelector('#gridInputPartner');
 const alertMessage = document.querySelector('#alerts');
-const colorBox = document.querySelector('.colorbox');
+const colorBox = document.querySelectorAll('.colorbox');
 gridSizeForm.value = 16;
 let gridSize = gridSizeForm.value;
 gridInputPartner.innerHTML = `by ${gridSize}`;
 let newColor = "black";
+console.log(colorBox.length);
+
 
 function createGrid() {
         let squareSize = 512/gridSize
@@ -31,6 +33,11 @@ function clearGrid() {
 function changeColor(e) {
     e.target.style.backgroundColor = `${newColor}`;
 };
+
+function colorPicker() {
+    newColor = colorBox.id
+    console.log(newColor);
+}
 
 function colorClick() {
     document.querySelectorAll('.gridSquare').forEach( a => {
@@ -73,12 +80,3 @@ newGridButton.addEventListener('click', () => {
         clearGrid();
 } )
 
-colorBox.addEventListener('click', () => {
-    if (colorBox.id == 'rainbow') {
-
-    }
-    else {
-        let newColor = colorBox.style.backgroundColor
-
-    }
-})
