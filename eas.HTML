@@ -10,23 +10,43 @@
     <body>
         <div class="fullContainer">
             <p class="title innerDiv">Etch-A-Sketch</p>
-            <div id="userInputs" class="innerDiv">
-                <button id="resetButton">Reset</button>
-                <div id="form">
-                    <label for="gridInput">Grid Size:</label>
-                    <input type="number" id="gridInput" name="gridSize"
-                    min="1" max="100">
-                    <div id="gridInputPartner"></div>
-                </div>
-                <button id="newGridButton">Resize</button>
-            </div>
             <div id="alerts"></div>
             <div class="gridContainer innerDiv">
             </div>
-            <div id="colors">
-                <div id="rainbow" class="colorbox"></div>
-                <div id="black" class="colorbox"></div>
-                <div id="white" class="colorbox"></div>
+            <div id="palette">
+                <div id="selcolorbox">
+                    <div class="selcolorlabel">
+                        Current Color:
+                    </div>
+                    <div id="selected-color">
+                    </div>
+                </div>
+                <div id="colors">
+                    <div id="rainbow" class="colorbox"></div>
+                    <div id="black" class="colorbox"></div>
+                    <div id="white" class="colorbox"></div>
+                    <div id="red" class="colorbox"></div>
+                    <div id="blue" class="colorbox"></div>
+                    <div id="green" class="colorbox"></div>
+                    <div id="yellow" class="colorbox"></div>
+                    <div id="orange" class="colorbox"></div>
+                    <div id="purple" class="colorbox"></div>
+                    <div id="pink" class="colorbox"></div>
+                </div>
+                <div id="userInputs" class="innerDiv">
+                    <button id="resetButton">Reset Grid</button>
+                    <div id="form">
+                        <div id="gridResizer">
+                            <label for="gridInput">Grid Size:</label>
+                            <div class="xbyx">
+                                <input type="number" id="gridInput" name="gridSize"
+                                min="1" max="100">
+                                <div id="gridInputPartner"></div>
+                            </div>
+                        </div>
+                        <button id="newGridButton">Resize</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -1,3 +1,4 @@
+//Initialize needed selectors
 const gridContainer = document.querySelector('.gridContainer');
 const resetButton = document.querySelector('#resetButton');
 const gridSizeForm = document.querySelector('#gridInput');
@@ -5,11 +6,15 @@ const newGridButton = document.querySelector('#newGridButton');
 const gridInputPartner = document.querySelector('#gridInputPartner');
 const alertMessage = document.querySelector('#alerts');
 const colorBox = document.querySelectorAll('.colorbox');
+const selColor = document.querySelector('#selected-color');
+const rainbowColor = document.querySelector('#rainbow');
+//Sets default values for grid and sets the default color to black
 gridSizeForm.value = 16;
 let gridSize = gridSizeForm.value;
 gridInputPartner.innerHTML = `by ${gridSize}`;
 let newColor = "black";
-console.log(colorBox.length);
+let rgbFlag = 0
+selColor.style.backgroundColor = `${newColor}`;
 
 
 function createGrid() {
@@ -20,7 +25,8 @@ function createGrid() {
         gridSquare.setAttribute('style',`width: ${squareSize}px; height: ${squareSize}px;`);
         gridContainer.appendChild(gridSquare);
         document.querySelectorAll('.gridSquare').forEach( a => {
-            a.addEventListener('click', changeColor)});
+            a.addEventListener('click', changeColor);
+        });
     }
 
 };
@@ -35,13 +41,30 @@ function clearGrid() {
 };
 
 function changeColor(e) {
-    e.target.style.backgroundColor = `${newColor}`;
+    if (rgbFlag == 1) {
+        e.target.style.backgroundColor = `${randomRGB()}`;
+    }
+    else {
+        e.target.style.backgroundColor = `${newColor}`;
+    }
 };
 
+function randomRGB() {
+    return `rgb(${(Math.ceil(Math.random() * 256))}, ${(Math.ceil(Math.random() * 256))}, ${(Math.ceil(Math.random() * 256))})`
+}
+
 function colorPicker(ebox) {
-    newColor = ebox.target.id
-    ebox.target
-    console.log(newColor);
+    if (ebox.target.id == `rainbow`) {
+        rgbFlag = 1;
+        selColor.style.removeProperty('background-color');
+        selColor.classList.add('rainbowClass');
+    }
+    else {
+        newColor = ebox.target.id
+        rgbFlag = 0
+        selColor.classList.remove('rainbowClass');
+        selColor.style.backgroundColor = `${newColor}`;
+    }
 }
 
 function colorClick() {
@@ -54,7 +77,6 @@ function noColorClick() {
     document.querySelectorAll('.gridSquare').forEach( a => {
         a.removeEventListener('mouseover', changeColor)});
 };
-
 
 
 
