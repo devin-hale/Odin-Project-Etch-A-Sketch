@@ -19,11 +19,15 @@ function createGrid() {
         gridSquare.classList.toggle('gridSquare');
         gridSquare.setAttribute('style',`width: ${squareSize}px; height: ${squareSize}px;`);
         gridContainer.appendChild(gridSquare);
+        document.querySelectorAll('.gridSquare').forEach( a => {
+            a.addEventListener('click', changeColor)});
     }
 
 };
 
 function clearGrid() {
+    document.querySelectorAll('.gridSquare').forEach( a => {
+        a.removeEventListener('click', changeColor)});
     document.querySelectorAll('.gridSquare').forEach(function(a){
         a.remove()
         })
@@ -34,8 +38,9 @@ function changeColor(e) {
     e.target.style.backgroundColor = `${newColor}`;
 };
 
-function colorPicker() {
-    newColor = colorBox.id
+function colorPicker(ebox) {
+    newColor = ebox.target.id
+    ebox.target
     console.log(newColor);
 }
 
@@ -54,6 +59,9 @@ function noColorClick() {
 
 
 createGrid();
+colorBox.forEach( box => {
+    box.addEventListener('click', colorPicker);
+});
 
 resetButton.addEventListener('click', clearGrid);
 gridContainer.addEventListener('mousedown', colorClick);

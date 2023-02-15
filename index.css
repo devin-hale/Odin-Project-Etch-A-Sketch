@@ -37,10 +37,6 @@
 }
 
 
-.gridSquare:hover {
-    background-color: black;
-}
-
 #resetButton,
 #newGridButton {
     padding: 5px;
